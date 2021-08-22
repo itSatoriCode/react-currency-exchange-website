@@ -1,0 +1,6 @@
+[
+	{ "cur": "USD", "name": "US Dollar" },
+	{ "cur": "CAD", "name": "Canadian Dollar" },
+	{ "cur": "EUR", "name": "Euro" },
+	{ "cur": "CNY", "name": "Chinese Yuan" }
+]

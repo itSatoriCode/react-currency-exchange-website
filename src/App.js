@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navbar from './components/Header/Header';
+import Hero from './components/Hero/Hero';
+import GlobalStyle from './globalStyles';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Router>
+			<GlobalStyle />
+			<Navbar />
+			<Hero></Hero>
+			<h1>dsds</h1>
+			<h1>dsds</h1>
+			<h1>dsds</h1>
+			<h1>dsds</h1>
+			<h1>dsds</h1>
+			<h1>dsds</h1>
+			<h1>dsds</h1>
+			<h1>dsds</h1>
+		</Router>
+	);
 }
 
 export default App;
+
+// https://v6.exchangerate-api.com/v6/d56289915940c1af936db3b5/latest/USD
