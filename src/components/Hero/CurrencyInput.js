@@ -8,7 +8,11 @@ import styled from 'styled-components';
 
 const InputGroup = styled.div`
 	display: flex;
-	width: ${({ width }) => (width ? width : 'auto')};
+	/* width: 100%; */
+
+	@media screen and (min-width: 961px) {
+		position: relative;
+	}
 `;
 
 const CurrencyInput = ({
@@ -44,13 +48,13 @@ const CurrencyInput = ({
 	};
 
 	return (
-		<InputGroup width="90%" className="gx-0 d-flex">
+		<InputGroup className="gx-0 d-flex">
 			<Label absolute bold>
 				{sell ? 'You Sell' : 'You Buy'}
 			</Label>
 
 			<Input type="number" onChange={(e) => setValue(e.target.value)} value={value} />
-			<InputGroup className="position-relative">
+			<InputGroup>
 				<CurrencyDropdown
 					ref={inputRef}
 					onClick={() => handleDropdown(sell)}

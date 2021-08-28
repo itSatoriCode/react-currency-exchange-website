@@ -1,5 +1,28 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import { Button, Column } from '../../globalStyles';
+
+export const LeftColumn = styled(Column)`
+	@media screen and (max-width: 960px) {
+		display: none;
+	}
+`;
+
+export const RightColumn = styled(Column)`
+	justify-content: center;
+
+	> div {
+		width: 90%;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+
+		@media screen and (max-width: 960px) {
+			align-items: center;
+		}
+	}
+	${Column}
+`;
 
 export const Title = styled.h1`
 	margin-bottom: 1rem;
@@ -10,7 +33,7 @@ export const Title = styled.h1`
 	color: ${({ textColor }) => (textColor ? textColor : '#1c2237')};
 `;
 
-export const Section = styled.div`
+export const HeroSection = styled.div`
 	color: #fff;
 	padding: 120px 0 40px;
 	/* background: ${({ lightBg }) => (lightBg ? '#fff' : '#101522')}; */
@@ -102,8 +125,20 @@ export const List = styled(motion.ul)`
 	color: black;
 	list-style-type: none;
 
-	@media screen and (max-width: 990px) {
+	/* @media screen and (max-width: 990px) {
 		width: 400px;
+	} */
+
+	@media screen and (max-width: 960px) {
+		right: 0;
+		/* left: 0; */
+		bottom: 0;
+		top: auto;
+		width: 100vw;
+		max-height: 50vh;
+		height: 50vh;
+		border-radius: 0;
+		margin-bottom: 0;
 	}
 
 	/* @media screen and (max-width: 1200px) {
@@ -128,10 +163,13 @@ export const ListItem = styled.li`
 
 export const ConversionList = styled.ul`
 	padding-left: 0.5rem;
-	margin-left: 5.5rem;
-	padding-right: 4rem;
+	margin-left: 2.5rem;
 	list-style-type: none;
-	width: 90%;
+	/* width: 90%; */
+
+	@media screen and (max-width: 960px) {
+		margin-left: 5.5rem;
+	}
 
 	> li {
 		position: relative;
@@ -187,16 +225,16 @@ export const ConversionList = styled.ul`
 			padding: 0.4rem 0;
 			height: 45px;
 			margin-right: 0.4rem;
+			font-size: clamp(0.8rem, 2vw, 1rem);
 		}
 
 		> span.rate {
-			font-size: 1.05rem;
 			color: #00b9ff;
 			font-weight: 600;
 		}
 
 		> span:first-child {
-			min-width: 100px;
+			min-width: clamp(70px, 5vw, 100px);
 		}
 
 		> div {
@@ -265,10 +303,11 @@ export const Features = styled.div`
 export const GetStarted = styled.div`
 	display: flex;
 	flex-flow: column;
-	width: 90%;
+	width: 100%;
 	margin-left: auto;
 	> div {
 		display: flex;
+		justify-content: center;
 
 		> span {
 			padding: 10px 15px;
@@ -286,5 +325,10 @@ export const GetStarted = styled.div`
 		padding: 10px 10px;
 		font-weight: 600;
 		background-color: #2ed06e;
+
+		&:hover {
+			transition: background-color 0.2s ease-in;
+			background-color: #107f3c;
+		}
 	}
 `;

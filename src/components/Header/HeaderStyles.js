@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Container } from '../../globalStyles';
+import { Button, Container } from '../../globalStyles';
 import { Link } from 'react-router-dom';
 import { FaTypo3 } from 'react-icons/fa';
 
@@ -66,13 +66,25 @@ export const NavMenu = styled.ul`
 	text-align: center;
 
 	@media screen and (max-width: 960px) {
-		display: flex;
+		/* display: flex;
 		flex-direction: column;
 		width: 100%;
 		height: 90vh;
 		position: absolute;
-		top: 80px;
+		opacity: 1;
+		transition: all 0.5s ease;
+		background: #101522; */
+
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100vh;
+		padding-top: 80px;
+		z-index: -10;
+		position: absolute;
 		left: ${({ click }) => (click ? 0 : '-100%')};
+
+		/* top: 0px; */
 		opacity: 1;
 		transition: all 0.5s ease;
 		background: #101522;
@@ -142,4 +154,25 @@ export const NavBtnLink = styled(Link)`
 	width: 100%;
 	border: none;
 	outline: none;
+
+	> button {
+		border: 2px solid #00b9ff;
+		background-color: transparent;
+		color: #00b9ff;
+
+		&:hover {
+			background-color: #00b9ff;
+			color: white;
+			transition: background-color 0.2s ease-in;
+		}
+
+		@media screen and (max-width: 960px) {
+			width: 100%;
+		}
+	}
+`;
+
+export const HeaderButton = styled(Button)`
+	background-color: transparent;
+	${Button}
 `;

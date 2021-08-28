@@ -1,6 +1,11 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import FeatureSection from './components/FeatureSection/FeatureSection';
+import Footer from './components/Footer/Footer';
+import { FooterRow } from './components/Footer/FooterStyles';
 import Navbar from './components/Header/Header';
 import Hero from './components/Hero/Hero';
+import InfoSection from './components/InfoSection/InfoSection';
+import PhoneSection from './components/PhoneSection/PhoneSection';
 import GlobalStyle from './globalStyles';
 
 function App() {
@@ -9,14 +14,10 @@ function App() {
 			<GlobalStyle />
 			<Navbar />
 			<Hero></Hero>
-			<h1>dsds</h1>
-			<h1>dsds</h1>
-			<h1>dsds</h1>
-			<h1>dsds</h1>
-			<h1>dsds</h1>
-			<h1>dsds</h1>
-			<h1>dsds</h1>
-			<h1>dsds</h1>
+			<PhoneSection></PhoneSection>
+			<FeatureSection />
+			<InfoSection></InfoSection>
+			<Footer></Footer>
 		</Router>
 	);
 }

@@ -18,24 +18,43 @@ import {
 
 const Navbar = () => {
 	const [click, setClick] = useState(false);
-	const [button, setButton] = useState(true);
 
 	const handleClick = () => setClick(!click);
-	const closeMobileMenu = () => setClick(false);
+	const closeMobileMenu = () => {};
 
-	const showButton = () => {
-		if (window.innerWidth <= 765) {
-			setButton(false);
-		} else {
-			setButton(true);
-		}
+	const scrollTo = (id) => {
+		setClick(false);
+
+		const element = document.getElementById(id);
+
+		element.scrollIntoView({
+			behavior: 'smooth',
+		});
 	};
 
-	useEffect(() => {
-		showButton();
-	}, []);
+	const headerData = [
+		{
+			to: '/',
+			text: 'Phone Transfer',
+			id: 'phone',
+		},
+		{
+			to: '/services',
+			text: 'Services',
+			id: 'services',
+		},
+		{
+			to: '/products',
+			text: 'Products',
+			id: 'products',
+		},
+		{
+			to: '/help',
+			text: 'Help',
+			id: 'help',
+		},
+	];
 
-	window.addEventListener('resize', showButton);
 	return (
 		<>
 			<Nav>
@@ -52,7 +71,15 @@ const Navbar = () => {
 					</IconContext.Provider>
 
 					<NavMenu onClick={handleClick} click={click}>
-						<NavItem>
+						{headerData.map((el, index) => (
+							<NavItem>
+								<NavLinks to={el.to} onClick={() => scrollTo(el.id)}>
+									{el.text}
+								</NavLinks>
+							</NavItem>
+						))}
+
+						{/* <NavItem>
 							<NavLinks to="/" onClick={closeMobileMenu}>
 								Money Transfer
 							</NavLinks>
@@ -71,12 +98,18 @@ const Navbar = () => {
 							<NavLinks to="/help" onClick={closeMobileMenu}>
 								Help
 							</NavLinks>
-						</NavItem>
-
+						</NavItem> */}
 						<NavItemBtn>
+							<NavBtnLink to="/sign-up">
+								<Button onClick={closeMobileMenu} fontBig>
+									Join
+								</Button>
+							</NavBtnLink>
+						</NavItemBtn>
+						{/* <NavItemBtn>
 							{button ? (
 								<NavBtnLink to="/sign-up">
-									<Button nowrap>Join</Button>
+									<Button>Join</Button>
 								</NavBtnLink>
 							) : (
 								<NavBtnLink to="/sign-up">
@@ -85,7 +118,7 @@ const Navbar = () => {
 									</Button>
 								</NavBtnLink>
 							)}
-						</NavItemBtn>
+						</NavItemBtn> */}
 					</NavMenu>
 				</NavContainer>
 			</Nav>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import Flag from 'react-flagkit';
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -15,6 +15,12 @@ const DropdownList = ({ closeDropdown, show }) => {
 
 	const [search, setSearch] = useState('');
 
+	useEffect(() => {
+		if (!show) {
+			setSearch('');
+		}
+	}, [show]);
+
 	const handleSearch = (searchText) => {
 		setSearch(searchText);
 	};
@@ -25,7 +31,7 @@ const DropdownList = ({ closeDropdown, show }) => {
 				<List
 					initial={{ opacity: 0, height: '0%' }}
 					animate={{ opacity: 1, height: 'auto' }}
-					transition={{ delay: 0.2 }}
+					// transition={{ delay: 0.1 }}
 					exit={{ opacity: 0 }}
 					className="dropdown-list"
 				>
