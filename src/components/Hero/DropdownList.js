@@ -3,7 +3,6 @@ import { Container } from 'react-bootstrap';
 import Flag from 'react-flagkit';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { IconContext } from 'react-icons';
-import { currencies } from '../../data/Currency';
 import data from '../../data/data.json';
 import popular from '../../data/popular.json';
 import { CountryInput, Label, List, ListItem } from './HeroStyles';

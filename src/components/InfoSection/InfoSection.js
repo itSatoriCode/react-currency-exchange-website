@@ -2,10 +2,6 @@ import React from 'react';
 import { Heading, Text } from '../../globalStyles';
 // import { Section } from '../Hero/HeroStyles';
 import { ClientRow, ClientWrapper, InfoColumn, Section, TextWrapper } from './InfoSectionStyles';
-import { BsShieldLockFill, BsFillLightningFill } from 'react-icons/bs';
-import { BiSupport, BiDollar } from 'react-icons/bi';
-import { IoIosOptions } from 'react-icons/io';
-import { HiCubeTransparent } from 'react-icons/hi';
 
 const InfoSection = () => {
 	const content = [

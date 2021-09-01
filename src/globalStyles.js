@@ -2,7 +2,6 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { motion } from 'framer-motion';
 import {
 	alignFlex,
-	calcColor,
 	calcGap,
 	calcMb,
 	columnWidth,
@@ -76,7 +75,7 @@ export const Heading = styled.h2`
 			calcMb(mb, '1rem')};
 `;
 
-export const Column = styled.div`
+export const Column = styled(motion.div)`
 	flex: 0 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -108,7 +107,7 @@ export const Column = styled.div`
 	}
 `;
 
-export const Row = styled.div`
+export const Row = styled(motion.div)`
 	display: flex;
 	flex-wrap: wrap;
 

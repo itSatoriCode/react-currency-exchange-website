@@ -1,19 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Row, Col } from 'react-bootstrap';
 import {
 	RightColumn,
 	ConversionList,
 	Features,
 	GetStarted,
-	leftColumn,
-	Section,
 	Title,
 	Video,
 	LeftColumn,
 	HeroSection,
 } from './HeroStyles';
 import CurrencyInput from './CurrencyInput';
-import { Button, Column, Container, Text } from '../../globalStyles';
+import { Button, Container, Text, Row } from '../../globalStyles';
 import { AiOutlineRise } from 'react-icons/ai';
 import { IconContext } from 'react-icons';
 import { motion } from 'framer-motion';
@@ -70,8 +67,8 @@ const Hero = () => {
 	return (
 		<HeroSection id="hero">
 			<Container>
-				<Row className="justify-content-center">
-					<LeftColumn md={6} className="flex-column align-items-start hideSm">
+				<Row justify="center">
+					<LeftColumn md={6}>
 						<Title bold textColor>
 							Cheapest currency
 							<br />
@@ -82,14 +79,14 @@ const Hero = () => {
 							than old-school banks, and receive
 							<br /> money around the world for free.
 						</Text>
-						<Video
+						{/* <Video
 							width="70%"
 							src="/videos/Hero.mp4"
 							type="video/mp4"
 							// autoPlay
 							muted
 							loop
-						></Video>
+						></Video> */}
 						<Features>
 							<div>
 								<img className="lock" src="./images/Lock.svg" alt="21" />
@@ -104,9 +101,9 @@ const Hero = () => {
 						</Features>
 					</LeftColumn>
 
-					<RightColumn md={5} sm={10} className="">
+					<RightColumn align="end" md={5} sm={10}>
 						<div>
-							<Row className=" d-flex justify-content-end">
+							<Row>
 								<CurrencyInput
 									sell={true}
 									setValue={setSellAmount}
@@ -174,7 +171,7 @@ const Hero = () => {
 									<div>x</div>
 								</li>
 							</ConversionList>
-							<Row className=" d-flex justify-content-end">
+							<Row>
 								<CurrencyInput
 									currency={buyCur}
 									setValue={setBuyAmount}

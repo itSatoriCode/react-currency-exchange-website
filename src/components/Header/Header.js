@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { Button } from '../../globalStyles';
@@ -72,7 +72,7 @@ const Navbar = () => {
 
 					<NavMenu onClick={handleClick} click={click}>
 						{headerData.map((el, index) => (
-							<NavItem>
+							<NavItem key={index}>
 								<NavLinks to={el.to} onClick={() => scrollTo(el.id)}>
 									{el.text}
 								</NavLinks>

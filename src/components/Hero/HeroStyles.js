@@ -1,11 +1,14 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { Button, Column } from '../../globalStyles';
+import { Column } from '../../globalStyles';
 
 export const LeftColumn = styled(Column)`
+	align-items: start;
 	@media screen and (max-width: 960px) {
 		display: none;
 	}
+
+	${Column}
 `;
 
 export const RightColumn = styled(Column)`
