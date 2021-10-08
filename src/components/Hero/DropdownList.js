@@ -39,6 +39,7 @@ const DropdownList = ({ closeDropdown, show, listRef }) => {
 							<CountryInput
 								value={search}
 								onChange={(e) => handleSearch(e.target.value)}
+								placeholder="Type a currency"
 								className="ml-5"
 								bc="#fff"
 								type="text"

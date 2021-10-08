@@ -38,8 +38,6 @@ const Hero = () => {
 		const curRate = rates.conversion_rates[buyCur] / rates.conversion_rates[sellCur];
 		setBuyAmount(roundNumber((sellAmount - sellAmount * 0.0066) * curRate));
 
-		console.log('dsdsds');
-
 		setRate(roundNumber(curRate, 5));
 	}, [buyCur, sellCur, sellAmount, rate]);
 
@@ -62,7 +60,7 @@ const Hero = () => {
 							width="70%"
 							src="/videos/Hero.mp4"
 							type="video/mp4"
-							// autoPlay
+							autoPlay
 							muted
 							loop
 						></Video>

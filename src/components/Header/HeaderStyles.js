@@ -82,12 +82,12 @@ export const NavMenu = styled.ul`
 		padding-top: 80px;
 		z-index: -10;
 		position: absolute;
-		left: ${({ click }) => (click ? 0 : '-100%')};
+		right: ${({ click }) => (click ? 0 : '-100%')};
 
 		/* top: 0px; */
 		opacity: 1;
 		transition: all 0.5s ease;
-		background: #101522;
+		background: #2b3b5d;
 	}
 `;
 

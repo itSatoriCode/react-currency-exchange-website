@@ -15,7 +15,6 @@ export const RightColumn = styled(Column)`
 	justify-content: center;
 
 	> div {
-		width: 90%;
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
@@ -63,16 +62,13 @@ export const Input = styled.input`
 	border-radius: 5px 0 0 5px;
 	background-color: ${({ bc }) => (bc ? bc : '#f0f0f0')};
 	outline: none;
-	/* &:focus {
-			border: none;
-		} */
 `;
 
 export const CountryInput = styled(Input)`
 	background-color: #fff;
 	padding: 5px;
 	margin: 0 10px;
-	margin-left: 5rem;
+	margin-left: 1rem;
 	font-size: 1.1em;
 	border-bottom: 1px solid #d1d1d1;
 	border-radius: 0;
