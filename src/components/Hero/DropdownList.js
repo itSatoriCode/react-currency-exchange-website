@@ -8,10 +8,7 @@ import popular from '../../data/popular.json';
 import { CountryInput, Label, List, ListItem } from './HeroStyles';
 import { AnimatePresence } from 'framer-motion';
 
-const DropdownList = ({ closeDropdown, show }) => {
-	// console.log(JSON.parse(data));
-	// console.log(data);
-
+const DropdownList = ({ closeDropdown, show, listRef }) => {
 	const [search, setSearch] = useState('');
 
 	useEffect(() => {
@@ -34,8 +31,8 @@ const DropdownList = ({ closeDropdown, show }) => {
 					exit={{ opacity: 0 }}
 					className="dropdown-list"
 				>
-					<Container>
-						<ListItem padding="0" noHover className="d-flex align-items-center">
+					<Container ref={listRef}>
+						<ListItem padding="0" noHover>
 							<IconContext.Provider value={{ size: '2em', color: '#c9c9c9' }}>
 								<AiOutlineSearch></AiOutlineSearch>
 							</IconContext.Provider>
@@ -54,11 +51,7 @@ const DropdownList = ({ closeDropdown, show }) => {
 								</ListItem>
 
 								{popular.map((el, index) => (
-									<ListItem
-										key={index}
-										className="d-flex align-items-center"
-										onClick={() => closeDropdown(el)}
-									>
+									<ListItem key={index} onClick={() => closeDropdown(el)}>
 										<Flag size={28} country={el.cur.slice(0, -1)} />{' '}
 										<span>{el.cur}</span>
 										<Label fontSize="1em">{el.name}</Label>
@@ -84,11 +77,7 @@ const DropdownList = ({ closeDropdown, show }) => {
 								return code || name;
 							})
 							.map((el, index) => (
-								<ListItem
-									key={index}
-									className="d-flex align-items-center"
-									onClick={() => closeDropdown(el)}
-								>
+								<ListItem key={index} onClick={() => closeDropdown(el)}>
 									<Flag size={28} country={el.cur.slice(0, -1)} />{' '}
 									<span>{el.cur}</span>
 									<Label fontSize="1em">{el.name}</Label>

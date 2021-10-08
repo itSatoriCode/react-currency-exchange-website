@@ -1,5 +1,5 @@
 import React from 'react';
-import { Column, Container, Heading, Row, Text, Section } from '../../globalStyles';
+import { Container, Heading, Row, Text, Section } from '../../globalStyles';
 import { PhoneColumn } from './PhoneSectionStyle';
 // import { Section } from '../Hero/HeroStyles';
 

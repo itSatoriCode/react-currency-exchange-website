@@ -25,11 +25,11 @@ const Footer = () => {
 		<FooterSection id="help">
 			<Container>
 				<FooterRow>
-					<FooterColumn md={4} sm={10}>
-						<Text bold fontSize="1.5rem">
+					<FooterColumn>
+						<Text weight="700" size="1.5rem">
 							XChange
 						</Text>
-						<Text fontSize="0.9rem">
+						<Text maxWidth="360px" size="0.9rem">
 							XChange program is sponsored by Community Federal Savings Bank, to which
 							we're a service provider.
 						</Text>
@@ -45,8 +45,7 @@ const Footer = () => {
 
 					{footerData.map((el, index) => (
 						<FooterColumn key={index} md={2} sm={4}>
-							<Text bold fontSize="1.05rem">
-								{' '}
+							<Text weight="700" mb="0.3rem" size="1.05rem">
 								{el.title}
 							</Text>
 

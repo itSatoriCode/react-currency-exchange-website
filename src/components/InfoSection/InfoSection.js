@@ -1,6 +1,6 @@
 import React from 'react';
-import { GridContainer, GridItem, Section, Text } from '../../globalStyles';
-import { ClientRow, ClientWrapper, InfoGrid, InfoImage, TextWrapper } from './InfoSectionStyles';
+import { GridItem, Section, Text } from '../../globalStyles';
+import { InfoGrid, InfoImage, TextWrapper } from './InfoSectionStyles';
 
 const InfoSection = () => {
 	const content = [

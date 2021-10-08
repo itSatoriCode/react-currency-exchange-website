@@ -1,65 +1,24 @@
 import React from 'react';
-import Flag from 'react-flagkit';
-import { AiOutlineCaretDown } from 'react-icons/ai';
-import { IconContext } from 'react-icons';
-import { CurrencyDropdown, Input, Label } from './HeroStyles';
-import DropdownList from './DropdownList';
+
+import { Input, Label } from './HeroStyles';
 import styled from 'styled-components';
+import Dropdown from './Dropdown/Dropdown';
 
 const InputGroup = styled.div`
 	display: flex;
-	/* width: 100%; */
-
-	@media screen and (min-width: 961px) {
-		position: relative;
-	}
+	gap: 0;
 `;
 
-const CurrencyInput = ({
-	sell,
-	currency,
-	value,
-	setValue,
-	inputRef,
-	show,
-	setShowSellDrop,
-	setShowBuyDrop,
-	setCurrency,
-}) => {
-	const handleDropdown = (sell) => {
-		if (sell && !show) {
-			setShowSellDrop(true);
-			setShowBuyDrop(false);
-
-			return;
-		}
-
-		if (!show) {
-			setShowSellDrop(false);
-			setShowBuyDrop(true);
-		}
-	};
-
-	const closeDropdown = (el) => {
-		console.log(el);
-		setCurrency(el.cur);
-		setShowSellDrop(false);
-		setShowBuyDrop(false);
-	};
-
+const CurrencyInput = ({ sell, currency, value, setValue, setCurrency }) => {
 	return (
-		<InputGroup className="gx-0 d-flex">
+		<InputGroup>
 			<Label absolute bold>
 				{sell ? 'You Sell' : 'You Buy'}
 			</Label>
 
 			<Input type="number" onChange={(e) => setValue(e.target.value)} value={value} />
-			<InputGroup>
-				<CurrencyDropdown
-					ref={inputRef}
-					onClick={() => handleDropdown(sell)}
-					className="d-flex align-items-center justify-content-start"
-				>
+			{/* <InputGroup>
+				<CurrencyDropdown ref={inputRef} onClick={() => handleDropdown(sell)}>
 					<Flag size={28} country={currency.slice(0, -1)} />
 					<span>{currency}</span>
 					<IconContext.Provider value={{ size: '1.3em', color: '#dfdfdf' }}>
@@ -71,7 +30,8 @@ const CurrencyInput = ({
 						closeDropdown={closeDropdown}
 					/>
 				</CurrencyDropdown>
-			</InputGroup>
+			</InputGroup> */}
+			<Dropdown currency={currency} setCurrency={setCurrency} />
 		</InputGroup>
 	);
 };

@@ -1,21 +1,19 @@
-import { BrowserRouter as Router } from 'react-router-dom';
-import FeatureSection from './components/FeatureSection/FeatureSection';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Header/Header';
-import Hero from './components/Hero/Hero';
-import InfoSection from './components/InfoSection/InfoSection';
-import PhoneSection from './components/PhoneSection/PhoneSection';
 import GlobalStyle from './globalStyles';
+import DropdownTest from './pages/DropdownTest';
+import HomePage from './pages/HomePage';
 
 function App() {
 	return (
 		<Router>
 			<GlobalStyle />
 			<Navbar />
-			<Hero></Hero>
-			<PhoneSection></PhoneSection>
-			<FeatureSection />
-			<InfoSection></InfoSection>
+			<Switch>
+				<Route exact path="/" component={HomePage} />
+				<Route exact path="/test" component={DropdownTest} />
+			</Switch>
 			<Footer></Footer>
 		</Router>
 	);

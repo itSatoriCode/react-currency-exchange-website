@@ -1,13 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { motion } from 'framer-motion';
-import {
-	alignFlex,
-	calcGap,
-	calcMb,
-	columnWidth,
-	justifyFlex,
-	textAlignment,
-} from './styleFunctions';
 
 const GlobalStyle = createGlobalStyle`
 *{

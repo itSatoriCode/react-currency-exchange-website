@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
 	RightColumn,
 	ConversionList,
@@ -19,14 +19,10 @@ import rates from '../../data/rates.json';
 const Hero = () => {
 	const [sellCur, setSellCur] = useState('NZD');
 	const [buyCur, setBuyCur] = useState('USD');
-	const [sellAmount, setSellAmount] = useState(1000);
-	const [buyAmount, setBuyAmount] = useState(1000);
-	const [showSellDrop, setShowSellDrop] = useState(false);
-	const [showBuyDrop, setShowBuyDrop] = useState(false);
 	const [rate, setRate] = useState(1);
 
-	const sellRef = useRef();
-	const buyRef = useRef();
+	const [sellAmount, setSellAmount] = useState(1000);
+	const [buyAmount, setBuyAmount] = useState(1000);
 
 	const roundNumber = (number, decimal) => {
 		if (decimal) {
@@ -40,29 +36,12 @@ const Hero = () => {
 
 	useEffect(() => {
 		const curRate = rates.conversion_rates[buyCur] / rates.conversion_rates[sellCur];
-		// const amount = Math.round((sellAmount * rate + Number.EPSILON) * 100) / 100;
-		setBuyAmount(sellAmount - roundNumber(sellAmount * 0.0066));
+		setBuyAmount(roundNumber((sellAmount - sellAmount * 0.0066) * curRate));
+
+		console.log('dsdsds');
+
 		setRate(roundNumber(curRate, 5));
 	}, [buyCur, sellCur, sellAmount, rate]);
-
-	useEffect(() => {
-		const handleMouseClick = (e) => {
-			if (
-				(showSellDrop || showBuyDrop) &&
-				!sellRef.current.contains(e.target) &&
-				!buyRef.current.contains(e.target)
-			) {
-				setShowBuyDrop(false);
-				setShowSellDrop(false);
-			}
-		};
-
-		window.addEventListener('click', handleMouseClick);
-
-		return () => {
-			window.addEventListener('click', handleMouseClick);
-		};
-	}, [showBuyDrop, showSellDrop]);
 
 	return (
 		<HeroSection id="hero">
@@ -83,7 +62,7 @@ const Hero = () => {
 							width="70%"
 							src="/videos/Hero.mp4"
 							type="video/mp4"
-							autoPlay
+							// autoPlay
 							muted
 							loop
 						></Video>
@@ -109,16 +88,11 @@ const Hero = () => {
 									setValue={setSellAmount}
 									value={sellAmount}
 									currency={sellCur}
-									inputRef={sellRef}
-									show={showSellDrop}
-									setShowSellDrop={setShowSellDrop}
-									setShowBuyDrop={setShowBuyDrop}
 									setCurrency={setSellCur}
 								/>
 							</Row>
 
 							<ConversionList>
-								ConversionList
 								<li>
 									<span>
 										{roundNumber(sellAmount * 0.0016)} {sellCur}
@@ -172,10 +146,6 @@ const Hero = () => {
 									currency={buyCur}
 									setValue={setBuyAmount}
 									value={buyAmount}
-									inputRef={buyRef}
-									show={showBuyDrop}
-									setShowSellDrop={setShowSellDrop}
-									setShowBuyDrop={setShowBuyDrop}
 									setCurrency={setBuyCur}
 								/>
 							</Row>

@@ -72,6 +72,7 @@ export const CountryInput = styled(Input)`
 	background-color: #fff;
 	padding: 5px;
 	margin: 0 10px;
+	margin-left: 5rem;
 	font-size: 1.1em;
 	border-bottom: 1px solid #d1d1d1;
 	border-radius: 0;
@@ -88,8 +89,9 @@ export const Label = styled.span`
 `;
 
 export const CurrencyDropdown = styled.button`
-	/* height: 100%; */
-	/* width: 100%; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	height: 72px;
 	background-color: #00155c96;
 	border: none;
@@ -140,6 +142,8 @@ export const List = styled(motion.ul)`
 `;
 
 export const ListItem = styled.li`
+	display: flex;
+	align-items: center;
 	padding: ${({ padding }) => (padding ? padding : '6px')};
 	border-radius: 4px;
 	cursor: ${({ noPointer }) => (noPointer ? 'auto' : 'pointer')};
