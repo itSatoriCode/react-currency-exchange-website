@@ -1,5 +1,6 @@
 import React from 'react';
 import { Column, Container, Heading, Row, Text, Section } from '../../globalStyles';
+import { PhoneColumn } from './PhoneSectionStyle';
 // import { Section } from '../Hero/HeroStyles';
 
 const PhoneSection = () => {
@@ -23,23 +24,29 @@ const PhoneSection = () => {
 	];
 
 	return (
-		<Section white id="phone">
+		<Section white id="phone" padding="60px 0">
 			<Container>
-				<Row align="center" justify="center">
-					<Heading textAlign="center" inverse>
+				<Row align="center" justify="center" wrap="wrap">
+					<Heading mb="1rem" inverse>
 						Available on your phone too
 					</Heading>
-					<Row>
+					<Row justify="center" wrap="wrap">
 						{data.map((el, index) => (
-							<Column align="center" key={index} md={4} sm={10}>
+							<PhoneColumn align="center" key={index}>
 								<img width="80%" src={el.img} alt="" />
-								<Text textAlign="center" inverse bold fontSize="1.3rem">
+								<Text as="h5" align="center" inverse bold fontSize="1.3rem">
 									{el.title}
 								</Text>
-								<Text textAlign="center" inverse mb="auto" fontSize="0.9rem">
+								<Text
+									align="center"
+									width="70%"
+									inverse
+									mb="auto"
+									fontSize="0.9rem"
+								>
 									{el.description}
 								</Text>
-							</Column>
+							</PhoneColumn>
 						))}
 					</Row>
 				</Row>

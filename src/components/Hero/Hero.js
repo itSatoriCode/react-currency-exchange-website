@@ -68,7 +68,7 @@ const Hero = () => {
 		<HeroSection id="hero">
 			<Container>
 				<Row justify="center">
-					<LeftColumn md={6}>
+					<LeftColumn width="50%">
 						<Title bold textColor>
 							Cheapest currency
 							<br />
@@ -79,14 +79,14 @@ const Hero = () => {
 							than old-school banks, and receive
 							<br /> money around the world for free.
 						</Text>
-						{/* <Video
+						<Video
 							width="70%"
 							src="/videos/Hero.mp4"
 							type="video/mp4"
-							// autoPlay
+							autoPlay
 							muted
 							loop
-						></Video> */}
+						></Video>
 						<Features>
 							<div>
 								<img className="lock" src="./images/Lock.svg" alt="21" />
@@ -115,14 +115,10 @@ const Hero = () => {
 									setShowBuyDrop={setShowBuyDrop}
 									setCurrency={setSellCur}
 								/>
-								{/* <DropdownList
-								sellRef={sellRef}
-								show={showSellDrop}
-								showDropdown={setShowSellDrop}
-							/> */}
 							</Row>
 
 							<ConversionList>
+								ConversionList
 								<li>
 									<span>
 										{roundNumber(sellAmount * 0.0016)} {sellCur}

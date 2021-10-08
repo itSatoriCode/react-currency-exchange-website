@@ -50,20 +50,22 @@ const FeatureSection = () => {
 	];
 
 	return (
-		<Section id="services">
+		<Section id="services" padding="60px 0">
 			<Container>
-				<Row justify="center" gap="1rem">
-					<Heading textAlign="center" inverse>
+				<Row wrap="wrap" justify="center" gap="1.4rem">
+					<Heading mb="1rem" inverse>
 						Amazing Features
 					</Heading>
 					{features.map((el, index) => (
 						<Feature key={index} md={3} sm={10}>
 							{el.icon}
 
-							<Text inverse bold fontSize="1.3rem">
+							<Text inverse weight="700" size="1.3rem">
 								{el.title}
 							</Text>
-							<Text mb="auto">{el.description}</Text>
+							<Text mb="auto" size="1rem">
+								{el.description}
+							</Text>
 						</Feature>
 					))}
 				</Row>

@@ -4,11 +4,11 @@ import { Column } from '../../globalStyles';
 
 export const LeftColumn = styled(Column)`
 	align-items: start;
+	width: 50%;
+
 	@media screen and (max-width: 960px) {
 		display: none;
 	}
-
-	${Column}
 `;
 
 export const RightColumn = styled(Column)`
@@ -113,7 +113,6 @@ export const CurrencyDropdown = styled.button`
 `;
 
 export const List = styled(motion.ul)`
-	/* display: ${({ show }) => (show ? 'inline' : 'none')}; */
 	width: 450px;
 	max-height: 590px;
 	border-radius: 5px;
@@ -121,33 +120,23 @@ export const List = styled(motion.ul)`
 	z-index: 1000;
 	right: 0;
 	top: 0;
-	/* opacity: 0.3; */
 	background-color: #fdfdfd;
 	overflow: auto;
 	position: absolute;
 	color: black;
 	list-style-type: none;
 
-	/* @media screen and (max-width: 990px) {
-		width: 400px;
-	} */
-
 	@media screen and (max-width: 960px) {
 		right: 0;
-		/* left: 0; */
 		bottom: 0;
 		top: auto;
 		width: 100vw;
 		max-height: 50vh;
 		height: 50vh;
 		border-radius: 0;
+		padding: 0 40px;
 		margin-bottom: 0;
 	}
-
-	/* @media screen and (max-width: 1200px) {
-		transform: translateX(80px);
-		transition: transform 0.3s ease-in;
-	} */
 `;
 
 export const ListItem = styled.li`
@@ -168,7 +157,6 @@ export const ConversionList = styled.ul`
 	padding-left: 0.5rem;
 	margin-left: 2.5rem;
 	list-style-type: none;
-	/* width: 90%; */
 
 	@media screen and (max-width: 960px) {
 		margin-left: 5.5rem;
